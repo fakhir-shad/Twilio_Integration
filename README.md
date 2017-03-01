@@ -58,7 +58,7 @@ TWILIO = YAML.load(File.read(path))[Rails.env] || {'sid' => '', 'from' => '', 't
 
 ```
 config.after_initialize do
-      ::TWILIO = Twilio::REST::Client.new(GLOBAL_CONFIG['sid'], GLOBAL_CONFIG['token'])
+      ::TWILIO = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
 end
 ```
 
@@ -67,9 +67,9 @@ end
 ```
   def call_person
     call=::TWILIO.account.calls.create(
-                                       url: "#{config['url']}/conference.xml",
+                                       url: "#{TWILIO_CONFIG['url']}/conference.xml",
                                        to: Number To Be Dialed,
-                                       from: config['from'],
+                                       from: TWILIO_CONFIG['from'],
                                        status_callback: "Call Back URL",
                                        status_callback_method: "POST",
                                        status_callback_event: ['answered'])
