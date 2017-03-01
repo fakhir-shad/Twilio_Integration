@@ -117,7 +117,7 @@ Action conference
 ```
 The detail information about the Gather TWIML can be found [here](https://www.twilio.com/docs/api/twiml/gather).
 
-## Step 7: Add Action to Receive User's Input
+## Step 8: Add Action to Receive User's Input
 
 Action Incoming
 ```
